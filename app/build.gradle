@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+	compileSdkVersion rootProject.compileSdkVersion
+	buildToolsVersion rootProject.buildToolsVersion
+
+	defaultConfig {
+		applicationId "pl.droidsonroids.examplerealmmvp"
+		minSdkVersion rootProject.minSdkVersion
+		targetSdkVersion rootProject.targetSdkVersion
+		versionCode 1
+		versionName "1.0"
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+	implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+	implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+	annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+	implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+	annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+	testImplementation 'junit:junit:4.12'
+}
